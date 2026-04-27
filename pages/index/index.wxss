@@ -1,0 +1,287 @@
+.home-page {
+  padding-bottom: 60rpx;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 44rpx 38rpx;
+  background: linear-gradient(135deg, #fff3cf, #ffe0ec 48%, #dff7ff);
+}
+
+.hero::after {
+  position: absolute;
+  right: -56rpx;
+  top: -48rpx;
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 999rpx;
+  content: '';
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.hero__badge {
+  display: inline-flex;
+  padding: 12rpx 20rpx;
+  border-radius: 999rpx;
+  color: #8b4b14;
+  font-size: 24rpx;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hero__title {
+  margin-top: 26rpx;
+  font-size: 52rpx;
+  font-weight: 900;
+  letter-spacing: -1rpx;
+}
+
+.hero__desc {
+  width: 86%;
+  margin-top: 16rpx;
+  color: #745b43;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  margin-top: 34rpx;
+}
+
+.hero__btn {
+  width: 256rpx;
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__stat-num {
+  font-size: 38rpx;
+  font-weight: 900;
+}
+
+.hero__stat-label {
+  color: #8c7765;
+  font-size: 22rpx;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  height: 96rpx;
+  margin-top: 26rpx;
+  padding: 0 28rpx;
+}
+
+.search__icon {
+  font-size: 30rpx;
+}
+
+.search__input {
+  flex: 1;
+  height: 92rpx;
+  color: #2b221b;
+  font-size: 28rpx;
+}
+
+.search__clear {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  color: #9a7657;
+  font-size: 38rpx;
+  background: #fff1d9;
+}
+
+.category-scroll {
+  margin: 28rpx -28rpx 0;
+  white-space: nowrap;
+}
+
+.category-row {
+  display: flex;
+  gap: 18rpx;
+  padding: 0 28rpx 6rpx;
+}
+
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 20rpx 28rpx;
+  border-radius: 999rpx;
+  color: #7f6855;
+  font-size: 26rpx;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.category-pill--active {
+  color: #fff;
+  background: #2b221b;
+}
+
+.section-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 38rpx;
+}
+
+.section-title--toys {
+  margin-top: 44rpx;
+}
+
+.section-title__main {
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.section-title__sub {
+  margin-top: 8rpx;
+  color: #8c7765;
+  font-size: 24rpx;
+}
+
+.featured-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+  margin-top: 22rpx;
+}
+
+.featured-card {
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+}
+
+.featured-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 92rpx;
+  height: 92rpx;
+  border-radius: 28rpx;
+  font-size: 46rpx;
+}
+
+.featured-card__content {
+  flex: 1;
+  margin-left: 22rpx;
+}
+
+.featured-card__name {
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.featured-card__desc {
+  margin-top: 8rpx;
+  color: #8c7765;
+  font-size: 24rpx;
+}
+
+.featured-card__arrow {
+  color: #b49b84;
+  font-size: 58rpx;
+}
+
+.toy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+  margin-top: 22rpx;
+}
+
+.toy-card {
+  min-height: 286rpx;
+  padding: 24rpx;
+}
+
+.toy-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.toy-card__emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82rpx;
+  height: 82rpx;
+  border-radius: 26rpx;
+  font-size: 42rpx;
+}
+
+.favorite {
+  width: 54rpx;
+  height: 54rpx;
+  color: #ff9f1c;
+  font-size: 38rpx;
+  line-height: 54rpx;
+}
+
+.toy-card__name {
+  margin-top: 22rpx;
+  font-size: 30rpx;
+  font-weight: 900;
+}
+
+.toy-card__subtitle {
+  min-height: 68rpx;
+  margin-top: 10rpx;
+  color: #806b57;
+  font-size: 24rpx;
+  line-height: 1.45;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+  margin-top: 18rpx;
+}
+
+.tag {
+  padding: 8rpx 12rpx;
+  border-radius: 999rpx;
+  color: #8b633b;
+  font-size: 20rpx;
+  background: #fff1d9;
+}
+
+.empty {
+  margin-top: 24rpx;
+  padding: 52rpx 30rpx;
+  text-align: center;
+}
+
+.empty__emoji {
+  font-size: 70rpx;
+}
+
+.empty__title {
+  margin-top: 14rpx;
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.empty__desc {
+  margin-top: 12rpx;
+  color: #8c7765;
+  font-size: 26rpx;
+}
+
+.empty__btn {
+  width: 240rpx;
+  margin: 28rpx auto 0;
+}
