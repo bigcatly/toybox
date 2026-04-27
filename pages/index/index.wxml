@@ -1,0 +1,95 @@
+<view class="container home-page">
+  <view class="hero card">
+    <view class="hero__badge">Just So Fun</view>
+    <view class="hero__title">今天想玩点什么？</view>
+    <view class="hero__desc">把无聊、选择困难和一点点压力，都丢进这个小玩具箱。</view>
+    <view class="hero__actions">
+      <button class="primary-btn hero__btn" bindtap="randomToy">随机开玩</button>
+      <view class="hero__stat">
+        <text class="hero__stat-num">{{stats.played || 0}}</text>
+        <text class="hero__stat-label">次打开</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="search card">
+    <text class="search__icon">🔎</text>
+    <input class="search__input" value="{{keyword}}" placeholder="搜索木鱼、骰子、抽签..." confirm-type="search" bindinput="handleSearch" />
+    <button wx:if="{{keyword}}" class="search__clear" bindtap="clearSearch">×</button>
+  </view>
+
+  <scroll-view class="category-scroll" scroll-x="true" show-scrollbar="false">
+    <view class="category-row">
+      <button
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="category-pill {{activeCategory === item.id ? 'category-pill--active' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="chooseCategory"
+      >
+        <text>{{item.emoji}}</text>
+        <text>{{item.name}}</text>
+      </button>
+    </view>
+  </scroll-view>
+
+  <view class="section-title">
+    <view>
+      <view class="section-title__main">今日推荐</view>
+      <view class="section-title__sub">适合马上打开的小快乐</view>
+    </view>
+  </view>
+
+  <view class="featured-list">
+    <view
+      wx:for="{{featuredToys}}"
+      wx:key="id"
+      class="featured-card card"
+      data-id="{{item.id}}"
+      bindtap="goToy"
+    >
+      <view class="featured-card__icon" style="background: {{item.gradient}};">{{item.emoji}}</view>
+      <view class="featured-card__content">
+        <view class="featured-card__name">{{item.name}}</view>
+        <view class="featured-card__desc">{{item.subtitle}}</view>
+      </view>
+      <text class="featured-card__arrow">›</text>
+    </view>
+  </view>
+
+  <view class="section-title section-title--toys">
+    <view>
+      <view class="section-title__main">全部玩具</view>
+      <view class="section-title__sub">{{filteredToys.length}} 个在线小玩具</view>
+    </view>
+  </view>
+
+  <view wx:if="{{filteredToys.length}}" class="toy-grid">
+    <view
+      wx:for="{{filteredToys}}"
+      wx:key="id"
+      class="toy-card card"
+      data-id="{{item.id}}"
+      bindtap="goToy"
+    >
+      <view class="toy-card__top">
+        <view class="toy-card__emoji" style="background: {{item.gradient}};">{{item.emoji}}</view>
+        <button class="favorite" catchtap="toggleFavorite" data-id="{{item.id}}">
+          {{item.isFavorite ? '★' : '☆'}}
+        </button>
+      </view>
+      <view class="toy-card__name">{{item.name}}</view>
+      <view class="toy-card__subtitle">{{item.subtitle}}</view>
+      <view class="tag-row">
+        <text wx:for="{{item.tags}}" wx:key="*this" class="tag">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="empty card">
+    <view class="empty__emoji">🪄</view>
+    <view class="empty__title">没有找到玩具</view>
+    <view class="empty__desc">换个关键词试试，或者直接随机开玩。</view>
+    <button class="secondary-btn empty__btn" bindtap="randomToy">随机一个</button>
+  </view>
+</view>
