@@ -1,0 +1,96 @@
+<view wx:if="{{toy}}" class="container toy-page">
+  <view class="toy-hero card" style="background: {{toy.gradient}};">
+    <view class="toy-hero__emoji">{{toy.emoji}}</view>
+    <view class="toy-hero__name">{{toy.name}}</view>
+    <view class="toy-hero__desc">{{toy.description}}</view>
+  </view>
+
+  <block wx:if="{{toy.id === 'wooden-fish'}}">
+    <view class="wood card">
+      <view class="wood__score">{{merit}}</view>
+      <view class="wood__label">今日功德</view>
+      <button class="wood__fish" bindtap="tapWoodenFish">
+        <view class="wood__fish-core">🐟</view>
+      </button>
+      <view class="wood__hint">轻点木鱼，烦恼自动 -1</view>
+      <view class="wood__hits">
+        <text wx:for="{{woodHits}}" wx:key="id" class="wood__hit">{{item.text}}</text>
+      </view>
+      <button class="secondary-btn" bindtap="resetWoodenFish">重置功德</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{toy.id === 'decision-wheel'}}">
+    <view class="wheel card">
+      <view class="wheel__stage">
+        <view class="wheel__pointer">▼</view>
+        <view class="wheel__disc" style="transform: rotate({{wheelRotation}}deg);">
+          <text wx:for="{{wheelOptions}}" wx:key="*this" class="wheel__option">{{item}}</text>
+        </view>
+      </view>
+      <button class="primary-btn" bindtap="spinWheel">{{spinning ? '转动中...' : '开始转动'}}</button>
+      <view wx:if="{{wheelResult}}" class="result-box">命运选择了：{{wheelResult}}</view>
+      <view class="option-editor">
+        <view class="option-editor__title">选项</view>
+        <view class="option-input-row">
+          <input class="option-input" value="{{wheelInput}}" placeholder="添加一个新选项" bindinput="handleWheelInput" confirm-type="done" bindconfirm="addWheelOption" />
+          <button class="option-add" bindtap="addWheelOption">添加</button>
+        </view>
+        <view class="option-list">
+          <button wx:for="{{wheelOptions}}" wx:key="*this" class="option-chip" data-index="{{index}}" bindtap="removeWheelOption">{{item}} ×</button>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:elif="{{toy.id === 'breathing-ball'}}">
+    <view class="breath card">
+      <view class="breath__circle {{breathRunning && breathPhaseIndex === 0 ? 'breath__circle--run-0' : ''}} {{breathRunning && breathPhaseIndex === 1 ? 'breath__circle--run-1' : ''}} {{breathRunning && breathPhaseIndex === 2 ? 'breath__circle--run-2' : ''}}">
+        <view class="breath__inner">{{currentBreathPhase.name}}</view>
+      </view>
+      <view class="breath__tip">{{currentBreathPhase.tip}}</view>
+      <view class="breath__duration">{{currentBreathPhase.duration}} 秒</view>
+      <button class="primary-btn" bindtap="toggleBreathing">{{breathRunning ? '暂停呼吸' : '开始呼吸'}}</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{toy.id === 'lucky-dice'}}">
+    <view class="dice card">
+      <view class="dice__box {{diceRolling ? 'dice__box--rolling' : ''}}">{{diceValue}}</view>
+      <button class="primary-btn" bindtap="rollDice">{{diceRolling ? '掷骰中...' : '掷一下'}}</button>
+      <view class="dice__history-title">最近结果</view>
+      <view class="dice__history">
+        <text wx:for="{{diceHistory}}" wx:key="*this" class="dice__history-item">{{item}}</text>
+      </view>
+    </view>
+  </block>
+
+  <block wx:elif="{{toy.id === 'bubble-wrap'}}">
+    <view class="bubble card">
+      <view class="bubble__meta">已戳破 {{poppedCount}} / {{bubbles.length}}</view>
+      <view class="bubble__grid">
+        <button
+          wx:for="{{bubbles}}"
+          wx:key="id"
+          class="bubble__item {{item.popped ? 'bubble__item--popped' : ''}}"
+          style="width: {{item.size}}rpx; height: {{item.size}}rpx;"
+          data-index="{{index}}"
+          bindtap="popBubble"
+        >{{item.popped ? '啪' : ''}}</button>
+      </view>
+      <button class="secondary-btn" bindtap="resetBubbles">换一张泡泡纸</button>
+    </view>
+  </block>
+
+  <block wx:elif="{{toy.id === 'daily-fortune'}}">
+    <view class="fortune card">
+      <view class="fortune__cookie">🥠</view>
+      <view wx:if="{{fortune}}" class="fortune__paper">
+        <view class="fortune__level">{{fortune.level}}</view>
+        <view class="fortune__text">{{fortune.text}}</view>
+      </view>
+      <view wx:else class="fortune__placeholder">点击按钮，抽一支今天的小签。</view>
+      <button class="primary-btn" bindtap="drawFortune">{{fortune ? '再抽一支' : '开始抽签'}}</button>
+    </view>
+  </block>
+</view>
