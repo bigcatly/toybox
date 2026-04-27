@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/toy/toy"
+  ],
+  "window": {
+    "navigationBarTitleText": "玩具箱",
+    "navigationBarBackgroundColor": "#fff7ea",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff7ea",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}
