@@ -1,13 +1,17 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/category/category",
+    "pages/cabinet/cabinet",
+    "pages/mine/mine",
     "pages/toy/toy"
   ],
   "window": {
+    "navigationStyle": "custom",
     "navigationBarTitleText": "玩具箱",
-    "navigationBarBackgroundColor": "#fff7ea",
+    "navigationBarBackgroundColor": "#fffaf0",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#fff7ea",
+    "backgroundColor": "#fffaf0",
     "backgroundTextStyle": "dark"
   },
   "style": "v2",
